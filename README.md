@@ -1,69 +1,70 @@
 <p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
+  <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
 <h1>Enabling and Unlocking Accounts using Active Directory Deployed in the Cloud (Azure)</h1>
-In this home lab, I will simulate a locked-out user account after many failed attempts to log in (incorrect password) and unlock the account within Active Directory as an admin. I will also configure the Account Lockout Threshold in Group Policy and observe logs.<br />
+In this home lab, I simulate a locked-out user account after multiple failed login attempts and demonstrate how to unlock it within Active Directory as an admin. I also configure the Account Lockout Threshold in Group Policy and observe logs for troubleshooting.
 
 <h2>Environments and Technologies Used</h2>
+<ul>
+  <li>Microsoft Azure (Virtual Machines/Compute)</li>
+  <li>Remote Desktop</li>
+  <li>Active Directory Domain Services</li>
+  <li>PowerShell</li>
+</ul>
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Active Directory Domain Services
-- PowerShell
-
-<h2>Operating Systems Used </h2>
-
-- Windows Server 2022
-- Windows 10 (21H2)
+<h2>Operating Systems Used</h2>
+<ul>
+  <li>Windows Server 2022</li>
+  <li>Windows 10 (21H2)</li>
+</ul>
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-Dealing with Account Lockouts
+<h3>Dealing with Account Lockouts</h3>
+<ol>
+  <li>Log in to DC-1 and pick a user account you created previously.</li>
 
-Get logged into dc-1
+  <li>Configure Group Policy to lock out an account after 5 failed login attempts:</li>
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/f77227a0-5f02-4711-907f-911a9937ecc4" alt="Group Policy Configuration"/>
+  </p>
 
-Pick a random user account you created previously
+  <li>Attempt to log in 6 times with an incorrect password. The account will be locked out.</li>
 
-Configure Group Policy to Lockout the account after 5 attempts:
+  <li>Unlock the account and reset the password. Attempt to log in again.</li>
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/31034cff-fd89-4bdc-b5b7-19204a748e60" alt="Unlock Account Screenshot"/>
+  </p>
+</ol>
 
-How To Configure Account Lockout Threshold in Group Policy
+<h3>Enabling and Disabling Accounts</h3>
+<ol>
+  <li>Disable the same account in Active Directory.</li>
+  <li>Attempt to log in with the disabled account, observe the error message.</li>
+  <li>Re-enable the account and attempt to log in again.</li>
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/d22ca58e-e019-4199-8de8-6a279f01b94e" alt="Disable and Re-enable Account"/>
+  </p>
+</ol>
 
- ![image](https://github.com/user-attachments/assets/f77227a0-5f02-4711-907f-911a9937ecc4)
-
-
-Attempt to log in with it 6 times with a bad password
-
-Observe that the account has been locked out within Active Directory
-
-Unlock the account
-
-Reset the password
-
-Attempt to login with it
-
- ![image](https://github.com/user-attachments/assets/31034cff-fd89-4bdc-b5b7-19204a748e60)
-
-
-Enabling and Disabling Accounts
-
-Disable the same account in Active Directory
-
-Attempt to login with it, observe the error message
-
-Re-enable the account and attempt to login with it.
-
-![image](https://github.com/user-attachments/assets/d22ca58e-e019-4199-8de8-6a279f01b94e)
- 
-
-
-Observing Logs
-
-Observe the logs in the Domain Controller
-
-Observe the logs on the client Machine
-
- ![image](https://github.com/user-attachments/assets/12f9f634-8afd-439f-9b83-d34dca61dda4)
+<h3>Observing Logs</h3>
+<ol>
+  <li>Observe the logs in the Domain Controller.</li>
+  <li>Observe the logs on the client machine.</li>
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/12f9f634-8afd-439f-9b83-d34dca61dda4" alt="Log Observation Screenshot"/>
+  </p>
+</ol>
 
 <h2>Takeaways and Key Skills Developed</h2>
-In this project, I gained hands-on experience managing user accounts in Active Directory within a cloud environment on Microsoft Azure. I learned how to configure the Account Lockout Threshold using Group Policy, simulating a scenario where an account is locked after multiple failed login attempts and then unlocking it as an admin. I also explored disabling and re-enabling accounts, resetting passwords, and troubleshooting access issues. By observing logs on both the Domain Controller and client machines, I learned how to track and address user login problems. Working with Azure Virtual Machines and Remote Desktop helped me practice managing a cloud-based environment and remote administration. Overall, this project gave me valuable skills in Active Directory management, security settings, and log analysis, which are essential as I continue working toward becoming a Cloud Support Engineer.
+<ul>
+  <li>Hands-on experience with managing user accounts in Active Directory in a cloud-based Azure environment.</li>
+  <li>Configured Account Lockout Thresholds using Group Policy to simulate account lockouts after failed login attempts.</li>
+  <li>Unlocked user accounts and reset passwords as an admin, ensuring proper troubleshooting of access issues.</li>
+  <li>Disabled and re-enabled accounts, further understanding user account management in Active Directory.</li>
+  <li>Observed and analyzed logs from both the Domain Controller and client machine to diagnose and resolve login problems.</li>
+  <li>Gained practical experience with Azure Virtual Machines and Remote Desktop for cloud-based administration and remote troubleshooting.</li>
+  <li>Developed essential skills in cloud support engineering, including security management, account recovery, and log analysis.</li>
+</ul>
+
